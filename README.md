@@ -56,6 +56,9 @@ Content moderation: help detect offensive or harmful content in user-genrated re
 
 This project presents a simple yet functional approach to sentiment analysis using classic NLP tools. While no manual text preprocessing was applied, the TF-IDF technique was effective in converting raw text into numerical
 features for model training. Logistic Rgression proved to be a quick and efficient classifier for this task.
+This project showcases the power of combining traditionnal NLP methods like TF-IDF with efficent machine learning algorithms such as logistic regression to solve real world problems like sentimment analysis. 
+
+## Output
 
 
 

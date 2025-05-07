@@ -60,6 +60,7 @@ This project showcases the power of combining traditionnal NLP methods like TF-I
 
 ## Output
 
+![Image](https://github.com/user-attachments/assets/c760dfd4-3c19-49c3-9611-26fa7bc73336)
 
 
 

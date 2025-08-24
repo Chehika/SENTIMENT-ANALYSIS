@@ -1,4 +1,4 @@
-# Sentiment analysis using NLP
+# SENTIMENT ANALYSIS USING NLP
 
 ## overview
 

@@ -1,6 +1,4 @@
-
-
-# installing libraries
+import streamlit as st
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -8,36 +6,36 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 import matplotlib.pyplot as plt
 
-# upload file for analysis
-df = pd.read_csv('review data.csv')
-print("sample data: ")
-print(df.head())
+st.title("Sentiment Analysis Dashboard")
+df = pd.read_csv("review data.csv")
 
-#train-test split
+st.write("Sample Data")
+st.dataframe(df.head())
+
 x = df['text']
 y = df['sentiment']
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
-#TF-IDF Vectorization
+x_train, x_test, y_train, y_test = train_test_split(
+    x, y, test_size=0.2, random_state=42
+)
+
 vectorizer = TfidfVectorizer()
+
 x_train_tfidf = vectorizer.fit_transform(x_train)
-x_test_tfidf= vectorizer.transform(x_test)
+x_test_tfidf = vectorizer.transform(x_test)
 
-#train model
 model = LogisticRegression()
+
 model.fit(x_train_tfidf, y_train)
-
-#predict model
 y_pred = model.predict(x_test_tfidf)
-print(classification_report(y_test, y_pred))
+st.text("Classification Report")
+st.text(classification_report(y_test, y_pred))
+label_counts = pd.Series(y_pred).value_counts()
 
-#visualizing
-label_counts =pd.Series(y_pred).value_counts()
-plt.figure(figsize=(8, 6))
-label_counts.plot(kind='barh', color=['skyblue','pink','gray'])
-plt.xlabel('Number of Predictions')
-plt.ylabel('Sentiment')
-plt.title('Sentiment Distribution')
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.show()
+fig, ax = plt.subplots(figsize=(8, 6))
+label_counts.plot(kind='barh', ax=ax)
+ax.set_xlabel('Number of Predictions')
+ax.set_ylabel('Sentiment')
+ax.set_title('Sentiment Distribution')
+
+st.pyplot(fig)

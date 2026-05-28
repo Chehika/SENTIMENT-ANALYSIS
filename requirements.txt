@@ -1,6 +1,4 @@
-git init
-git add .
-git commit -m "sentiment analysis dashboard"
-git branch -M main
-git remote add origin https://github.com/YOURNAME/sentiment-dashboard.git
-git push -u origin main
+streamlit
+scikit-learn
+pandas
+matplotlib

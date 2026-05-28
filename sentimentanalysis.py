@@ -1,4 +1,4 @@
-!pip install -q scikit-learn pandas matplotlib
+
 
 # installing libraries
 import pandas as pd

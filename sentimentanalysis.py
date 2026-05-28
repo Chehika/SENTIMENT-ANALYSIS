@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 st.title("Sentiment Analysis Dashboard")
 
-df = pd.read_csv("/content/review data.csv")
+df = pd.read_csv("review data.csv")
 
 st.write("Sample Data")
 st.dataframe(df.head())
